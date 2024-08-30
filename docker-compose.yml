@@ -1,0 +1,33 @@
+version: '3.8'
+
+services:
+  database:
+    image: postgres
+    container_name: database_empresa_ddb
+    restart: always
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=root
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=empresa
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+      - ./db/init.sql:/docker-entrypoint-initdb.d/init.sql
+
+  app:
+    build: .
+    container_name: app_empresa
+    ports:
+      - 3006:3006
+    volumes:
+      - .:/usr/src/app
+    depends_on:
+      - database
+    environment:
+      - PORT=3006
+      - DATABASE_URL=postgresql://root:root@database_empresa_ddb:5432/empresa?schema=public
+
+volumes:
+  pgdata:
+    driver: local

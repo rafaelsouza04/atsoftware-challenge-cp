@@ -1,0 +1,30 @@
+{
+  "name": "atsoftware-back-end-template-challenge-main",
+  "version": "1.0.0",
+  "description": "Este repositório contém um setup inicial para um projeto back-end utilizando Node.js e TypeScript. O objetivo deste desafio é desenvolver um CRUD completo para máquinas industriais.",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node src/servidor.ts",
+    "build": "tsc",
+    "start": "npm run build && node dist/servidor.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@prisma/client": "^5.19.0",
+    "dotenv": "^16.4.5",
+    "express": "^4.19.2",
+    "multer": "^1.4.5-lts.1",
+    "mysql2": "^3.11.0",
+    "zod": "^3.23.8"
+  },
+  "devDependencies": {
+    "@types/express": "^4.17.21",
+    "@types/multer": "^1.4.12",
+    "@types/node": "^22.5.1",
+    "prisma": "^5.19.0",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.5.4"
+  }
+}
