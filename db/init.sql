@@ -1,4 +1,3 @@
--- Cria o banco de dados 'empresa' se ainda não existir
 DO $$
 BEGIN
     IF NOT EXISTS (SELECT FROM pg_database WHERE datname = 'empresa') THEN
@@ -10,10 +9,8 @@ BEGIN
 END
 $$;
 
--- Conecta ao banco de dados 'empresa'
 \c empresa;
 
--- Cria a tabela 'maquinas'
 CREATE TABLE maquinas (
   id SERIAL PRIMARY KEY,
   name VARCHAR(255) NOT NULL,
